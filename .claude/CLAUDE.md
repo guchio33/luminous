@@ -263,3 +263,30 @@ pnpm generate:types   # OpenAPI から型生成
 | `/test` | テスト生成 (Vitest) |
 | `/a11y` | アクセシビリティチェック |
 | `/typecheck` | 型安全性チェック |
+
+## ハーネス構成
+
+AI エージェント向けの開発環境整備（ハーネスエンジニアリング）。
+
+### 構成要素
+
+| 要素 | 配置 | 説明 |
+|------|------|------|
+| ルール | `.claude/CLAUDE.md` | プロジェクト規約、コーディング規約 |
+| スキル | `.claude/skills/` | 再利用可能な手順書 (16個) |
+| フック | `.claude/settings.json` | 自動実行トリガー (TypeCheck, Lint) |
+| メモリ | `.claude/memory/` | セッション間コンテキスト |
+| フィードバック | `.github/workflows/ci.yml` | CI/CD (lint, test, build) |
+
+### メモリの使い方
+
+```
+.claude/memory/
+├── progress.md    # 進捗・次のステップを記録
+├── decisions.md   # 設計判断の履歴
+└── context.md     # セッション間で共有すべき情報
+```
+
+**セッション終了時**: 重要な進捗を `progress.md` に記録
+**設計判断時**: 理由と選択肢を `decisions.md` に記録
+**新セッション開始時**: `memory/` を読んでコンテキストを把握
