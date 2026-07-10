@@ -5,12 +5,16 @@
   "packageManager": "pnpm@9.15.4",
   "scripts": {
     "dev": "next dev",
+    "dev:api": "pnpm --filter @luminous/api dev",
     "build": "next build",
+    "build:api": "pnpm --filter @luminous/api build",
     "start": "next start",
+    "start:api": "pnpm --filter @luminous/api start",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "typecheck": "tsc --noEmit",
-    "test": "node --test",
+    "test": "pnpm -r test",
+    "test:api": "pnpm --filter @luminous/api test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky"
