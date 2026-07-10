@@ -276,7 +276,16 @@ AI エージェント向けの開発環境整備（ハーネスエンジニア�
 | スキル | `.claude/skills/` | 再利用可能な手順書 (16個) |
 | フック | `.claude/settings.json` | 自動実行トリガー (TypeCheck, Lint) |
 | メモリ | `.claude/memory/` | セッション間コンテキスト |
-| フィードバック | `.github/workflows/ci.yml` | CI/CD (lint, test, build) |
+
+### フィードバックループ (自動検証)
+
+AI の出力を自動的に検証し、エラーがあれば修正を促す仕組み。
+
+| タイミング | 仕組み | 内容 |
+|-----------|--------|------|
+| ファイル編集時 | Claude hooks | TypeCheck, console.log 警告 |
+| コミット前 | husky + lint-staged | ESLint, Prettier |
+| PR作成後 | GitHub Actions | lint, typecheck, test, build |
 
 ### メモリの使い方
 
