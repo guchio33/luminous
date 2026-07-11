@@ -1,6 +1,12 @@
 import Link from "next/link";
 
-function Star({ className, delay = 0 }: { className?: string; delay?: number }) {
+function Star({
+  className,
+  delay = 0,
+}: {
+  className?: string;
+  delay?: number;
+}) {
   return (
     <div
       className={`absolute text-gold opacity-60 animate-twinkle ${className}`}

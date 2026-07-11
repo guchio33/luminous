@@ -4,38 +4,33 @@
   "private": true,
   "packageManager": "pnpm@9.15.4",
   "scripts": {
-    "dev": "next dev",
+    "dev": "pnpm -r --parallel dev",
+    "dev:web": "pnpm --filter @luminous/web dev",
     "dev:api": "pnpm --filter @luminous/api dev",
-    "build": "next build",
+    "build": "pnpm -r build",
+    "build:web": "pnpm --filter @luminous/web build",
     "build:api": "pnpm --filter @luminous/api build",
-    "start": "next start",
+    "start": "pnpm -r --parallel start",
+    "start:web": "pnpm --filter @luminous/web start",
     "start:api": "pnpm --filter @luminous/api start",
-    "lint": "eslint",
-    "lint:fix": "eslint --fix",
-    "typecheck": "tsc --noEmit",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test",
+    "test:web": "pnpm --filter @luminous/web test",
     "test:api": "pnpm --filter @luminous/api test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky"
   },
-  "dependencies": {
-    "next": "16.1.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
-  },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@eslint/js": "^9",
     "eslint": "^9",
-    "eslint-config-next": "16.1.6",
     "husky": "^9",
     "lint-staged": "^16",
     "prettier": "^3",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "typescript-eslint": "^8"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
