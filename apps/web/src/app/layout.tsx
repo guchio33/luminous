@@ -16,7 +16,8 @@ const notoSerifJP = Noto_Serif_JP({
 
 export const metadata: Metadata = {
   title: "Luminous - 夢を言葉にすると、世界が変わる",
-  description: "暗闇の中で光り輝く夢とやりたいことを共有するアプリ。Your dreams are stars in someone else's darkness.",
+  description:
+    "暗闇の中で光り輝く夢とやりたいことを共有するアプリ。Your dreams are stars in someone else's darkness.",
 };
 
 export default function RootLayout({
